@@ -15,4 +15,14 @@ public class MapperTrainDto {
         trainDto.setHeureArrivee(train.getHeureArrivee());
         return trainDto;
     }
+
+    public Train trainDtoToTrain(TrainDto trainDto) {
+        Train train = new Train();
+        train.setNumeroTrain(trainDto.getNumeroTrain());
+        train.setGareDepart(trainDto.getGareDepart());
+        train.setGareArrivee(trainDto.getGareArrivee());
+        train.setHeureDepart(trainDto.getHeureDepart());
+        train.setHeureArrivee(trainDto.getHeureArrivee());
+        return train;
+    }
 }
