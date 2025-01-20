@@ -12,8 +12,6 @@ public class MapperAgentDto {
         AgentDto agentDto = new AgentDto();
         agentDto.setNom(agent.getNom());
         agentDto.setPrenom(agent.getPrenom());
-        agentDto.setNumMatricule(agent.getNumMatricule());
-        agentDto.setSpecialite(agent.getSpecialite());
         return agentDto;
      }
 
@@ -21,8 +19,6 @@ public class MapperAgentDto {
         Agent agent = new Agent();
         agent.setNom(agentDto.getNom());
         agent.setPrenom(agentDto.getPrenom());
-        agent.setNumMatricule(agentDto.getNumMatricule());
-        agent.setSpecialite(agentDto.getSpecialite());
         return agent;
     }
 }

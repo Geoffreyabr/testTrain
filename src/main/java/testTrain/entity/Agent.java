@@ -3,7 +3,6 @@ package testTrain.entity;
 import jakarta.persistence.*;
 
 import java.util.List;
-import java.util.Set;
 
 @Entity
 public class Agent {
