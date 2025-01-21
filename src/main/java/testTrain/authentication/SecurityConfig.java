@@ -20,6 +20,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/trains/**").permitAll()
                         .requestMatchers("/agents/**").permitAll()
+
                         // autorise l'import CSV sans authentification
                         .anyRequest().authenticated()                   // le reste requiert une authentification
                 );

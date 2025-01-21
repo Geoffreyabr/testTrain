@@ -1,0 +1,16 @@
+id;numeroTrain;gareDepart;gareArrivee;heureDepart;heureArrivee
+1;TGV001;Paris Gare de Lyon;Lyon Part-Dieu;2025-01-16 06:30:00;2025-01-16 09:00:00
+2;TGV002;Lyon Part-Dieu;Paris Gare de Lyon;2025-01-16 07:00:00;2025-01-16 09:30:00
+3;TGV003;Marseille Saint-Charles;Nice Ville;2025-01-16 07:30:00;2025-01-16 10:00:00
+4;TGV004;Bordeaux Saint-Jean;Marseille Saint-Charles;2025-01-16 08:00:00;2025-01-16 10:30:00
+5;TGV005;Nice Ville;Toulouse Matabiau;2025-01-16 08:30:00;2025-01-16 11:00:00
+6;TGV006;Toulouse Matabiau;Bordeaux Saint-Jean;2025-01-16 09:00:00;2025-01-16 11:30:00
+7;TGV007;Lille Europe;Strasbourg;2025-01-16 09:30:00;2025-01-16 12:00:00
+8;TGV008;Strasbourg;Lille Europe;2025-01-16 10:00:00;2025-01-16 12:30:00
+9;TGV009;Rennes;Nantes;2025-01-16 10:30:00;2025-01-16 13:00:00
+10;TGV010;Nantes;Rennes;2025-01-16 11:00:00;2025-01-16 13:30:00
+11;TGV011;Dijon;Grenoble;2025-01-16 11:30:00;2025-01-16 14:00:00
+12;TGV012;Grenoble;Dijon;2025-01-16 12:00:00;2025-01-16 14:30:00
+13;TGV013;Montpellier;Avignon;2025-01-16 12:30:00;2025-01-16 15:00:00
+14;TGV014;Avignon;Montpellier;2025-01-16 13:00:00;2025-01-16 15:30:00
+15;TGV015;Rouen;Rouen;2025-01-16 13:30:00;2025-01-16 16:00:00
