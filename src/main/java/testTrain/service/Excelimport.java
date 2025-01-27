@@ -1,7 +1,11 @@
 package testTrain.service;
 
-import org.springframework.web.multipart.MultipartFile;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
+import testTrain.entity.Train;
+import testTrain.repository.TrainRepository;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,39 +13,59 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-//blallalal//
 @Service
 public class Excelimport {
 
-    // Méthode pour lire un fichier CSV envoyé via multipart
-    public List<List<String>> readCsvFile(MultipartFile file) {
-        List<List<String>> data = new ArrayList<>(); // Stockage des données CSV
+    @Autowired
+    private TrainRepository trainRepository;
 
-        try {
-            // Utilisez l'input stream du fichier MultipartFile envoyé dans la requête
-            BufferedReader reader = new BufferedReader(new InputStreamReader(file.getInputStream()));
+    @Transactional
+    public List<Train> processAndSaveCsvFile(MultipartFile file) {
+        List<Train> savedTrains = new ArrayList<>();
 
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(file.getInputStream()))) {
             String line;
-            while ((line = reader.readLine()) != null) {
-                // Découper chaque ligne en colonnes
-                String[] columns = line.split(",");
+            boolean isHeader = true;
 
-                // Convertir les colonnes en liste et ajouter à la liste principale
-                List<String> row = new ArrayList<>();
-                for (String column : columns) {
-                    row.add(column);
+            while ((line = reader.readLine()) != null) {
+                if (isHeader) {
+                    isHeader = false;
+                    continue;
                 }
-                data.add(row);
+
+                // Utiliser la virgule comme séparateur. Si nécessaire, changez-le en ";"
+                String[] columns = line.split(";");
+
+                if (columns.length >= 3) { // Vérifiez qu'il y a bien au moins 3 colonnes dans le CSV
+                    Train train = new Train();
+
+                    train.setNumeroTrain(columns[1].trim());
+                    train.setGareDepart(columns[2].trim());
+                    train.setGareArrivee(columns[3].trim());
+                    train.setHeureDepart(columns[4].trim());
+                    train.setHeureArrivee(columns[5].trim());
+
+                    savedTrains.add(train);
+
+                    // Log pour vérifier chaque objet Train parsé
+                    System.out.println("Train parsé : " + train);
+                } else {
+                    // Log pour les lignes incorrectes
+                    System.err.println("Ligne ignorée, colonnes insuffisantes : " + line);
+                }
             }
-            System.out.println("Fichier CSV traité avec succès !");
+
+            // Sauvegarder les trains en base
+            savedTrains = trainRepository.saveAll(savedTrains);
+
+            // Log après sauvegarde
+            System.out.println("Trains sauvegardés : " + savedTrains);
         } catch (IOException e) {
-            System.err.println("Erreur lors du chargement du fichier : " + e.getMessage());
+            System.err.println("Erreur lors du traitement du fichier : " + e.getMessage());
             e.printStackTrace();
         }
 
-        return data; // Retourner les données sous forme de liste
+        return savedTrains;
     }
+
 }
-
-
-

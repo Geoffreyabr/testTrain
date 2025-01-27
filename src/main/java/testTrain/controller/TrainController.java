@@ -64,7 +64,7 @@ public class TrainController {
     @PostMapping("/parseStatic")
     public ResponseEntity<?> parseStaticExcelFile(@RequestParam("file") MultipartFile file) {
         try {
-            List<List<String>> excelData = excelimport.readCsvFile(file);
+            List<Train> excelData = excelimport.processAndSaveCsvFile(file);
             return ResponseEntity.ok(excelData);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)

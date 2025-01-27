@@ -13,8 +13,9 @@ public class Train {
     private String numeroTrain;
     private String gareDepart;
     private String gareArrivee;
-    private LocalDateTime heureDepart;
-    private LocalDateTime heureArrivee;
+
+    private String  heureDepart;
+    private String  heureArrivee;
 
     @ManyToMany
     @JoinTable(
@@ -58,19 +59,19 @@ public class Train {
         this.gareArrivee = gareArrivee;
     }
 
-    public LocalDateTime getHeureDepart() {
+    public String getHeureDepart() {
         return heureDepart;
     }
 
-    public void setHeureDepart(LocalDateTime heureDepart) {
+    public void setHeureDepart(String  heureDepart) {
         this.heureDepart = heureDepart;
     }
 
-    public LocalDateTime getHeureArrivee() {
+    public String getHeureArrivee() {
         return heureArrivee;
     }
 
-    public void setHeureArrivee(LocalDateTime heureArrivee) {
+    public void setHeureArrivee(String heureArrivee) {
         this.heureArrivee = heureArrivee;
     }
 
@@ -81,4 +82,16 @@ public class Train {
     public void setAgents(List<Agent> agents) {
         this.agents = agents;
     }
+
+    @Override
+    public String toString() {
+        return "Train{" +
+                "numeroTrain='" + numeroTrain + '\'' +
+                ", gareDepart='" + gareDepart + '\'' +
+                ", gareArrivee='" + gareArrivee + '\'' +
+                ", heureDepart='" + heureDepart + '\'' +
+                ", heureArrivee='" + heureArrivee + '\'' +
+                '}';
+    }
+
 }

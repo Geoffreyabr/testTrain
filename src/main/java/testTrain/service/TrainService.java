@@ -19,8 +19,8 @@ public class TrainService {
             String numeroTrain,
             String gareDepart,
             String gareArrivee,
-            LocalDateTime heureDepart,
-            LocalDateTime heureArrivee
+            String  heureDepart,
+            String heureArrivee
     ) {
         Train newTrain = new Train();
         newTrain.setNumeroTrain(numeroTrain);

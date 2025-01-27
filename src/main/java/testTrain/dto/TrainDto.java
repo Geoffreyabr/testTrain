@@ -10,9 +10,9 @@ public class TrainDto {
 
     private String gareArrivee;
 
-    private LocalDateTime heureDepart;
+    private String  heureDepart;
 
-    private LocalDateTime heureArrivee;
+    private String heureArrivee;
 
     public String getNumeroTrain() {
         return numeroTrain;
@@ -38,19 +38,19 @@ public class TrainDto {
         this.gareArrivee = gareArrivee;
     }
 
-    public LocalDateTime getHeureDepart() {
+    public String getHeureDepart() {
         return heureDepart;
     }
 
-    public void setHeureDepart(LocalDateTime heureDepart) {
+    public void setHeureDepart(String heureDepart) {
         this.heureDepart = heureDepart;
     }
 
-    public LocalDateTime getHeureArrivee() {
+    public String getHeureArrivee() {
         return heureArrivee;
     }
 
-    public void setHeureArrivee(LocalDateTime heureArrivee) {
+    public void setHeureArrivee( String heureArrivee) {
         this.heureArrivee = heureArrivee;
     }
 }
