@@ -1,10 +1,10 @@
 package testTrain.service;
 
 import org.springframework.stereotype.Service;
+import testTrain.dto.AgentDto;
 import testTrain.entity.Agent;
 import testTrain.entity.Train;
 import testTrain.repository.AgentRepository;
-import testTrain.repository.TrainRepository;
 
 import java.util.List;
 
@@ -13,11 +13,8 @@ public class AgentService {
 
     private final AgentRepository agentRepository;
 
-    private final TrainRepository trainRepository;
-
-    public AgentService(AgentRepository agentRepository, TrainRepository trainRepository) {
+    public AgentService(AgentRepository agentRepository) {
         this.agentRepository = agentRepository;
-        this.trainRepository = trainRepository;
     }
 
     public Agent addAgent(
@@ -38,4 +35,10 @@ public class AgentService {
         return agentRepository.save(newAgent);
     };
 
+    public void saveAgents(List<Agent> agents) {
+        for (Agent agent : agents) {
+            System.out.println("Saving agent: " + agent.getNom() + " " + agent.getPrenom());
+            agentRepository.save(agent);
+        }
+    }
 }
