@@ -37,7 +37,6 @@ public class AgentService {
 
     public void saveAgents(List<Agent> agents) {
         for (Agent agent : agents) {
-            System.out.println("Saving agent: " + agent.getNom() + " " + agent.getPrenom());
             agentRepository.save(agent);
         }
     }
